@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"testBench/handlers"
 	"testBench/initializers"
 
 	"github.com/gorilla/mux"
@@ -15,6 +16,7 @@ func init() {
 func main() {
 
 	r := mux.NewRouter()
+	rout := handlers.Database{}
 
 	print("hi")
 
