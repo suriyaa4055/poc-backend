@@ -53,7 +53,7 @@ func (d Database) FetchInfoByGen(w http.ResponseWriter, r *http.Request) {
 func (d Database) FetchInfoByVin(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	vin := (vars["vin"])
-	var tb []models.Details
+	var tb models.Details
 	if result := initializers.DB.Where("vin = ?", vin).Find(&tb); result.Error != nil {
 		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
 		return
