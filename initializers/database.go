@@ -24,6 +24,8 @@ func ConnectToDB() *gorm.DB {
 		fmt.Println("failed to connect to db")
 	}
 	DB.AutoMigrate(&models.TestBenchTable{})
+	DB.AutoMigrate(&models.Details{})
+	DB.AutoMigrate(&models.GenDetails{})
 
 	return DB
 }
