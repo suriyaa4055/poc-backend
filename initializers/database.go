@@ -25,7 +25,6 @@ func ConnectToDB() *gorm.DB {
 	}
 	DB.AutoMigrate(&models.TestBenchTable{})
 	DB.AutoMigrate(&models.Details{})
-	// DB.AutoMigrate(&models.GenDetails{})
 
 	return DB
 }
