@@ -1,8 +1,28 @@
 package models
 
 type TestBenchTable struct {
+<<<<<<< HEAD
+	HuVersion string `json:"huVersion"`
+	HuGen     string `json:"huGen"`
+}
+
+type Gen20x struct {
+	Version   []string  `json:"version"`
+	SwVersion []float64 `json:"swVersion"`
+}
+
+type NTG struct {
+	Version   []string  `json:"version"`
+	SwVersion []float64 `json:"swVersion"`
+}
+
+type HU struct {
+	Gen20x *Gen20x `json:"gen20x"`
+	NTG    *NTG    `json:"ntg"`
+=======
 	HuGen     string
 	HuVersion string
+>>>>>>> 7f412a99682e317ed3e724c16ba53c62ced9f068
 }
 
 type Details struct {
