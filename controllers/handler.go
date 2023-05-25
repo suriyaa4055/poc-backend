@@ -40,7 +40,7 @@ func (d Database) FetchInfoByGen(w http.ResponseWriter, r *http.Request) {
 	// 	http.Error(w, err.Error(), http.StatusBadRequest)
 	// 	return
 	// }
-	var tb []models.GenDetails
+	var tb []models.Details
 	if result := initializers.DB.Where("hu_gen = ?", gen).Find(&tb); result.Error != nil {
 		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
 		return
