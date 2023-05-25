@@ -42,6 +42,7 @@ func (d Database) FetchInfoByGen(w http.ResponseWriter, r *http.Request) {
 	tb, err := GetService().FetchGenData(gen)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+
 		return
 	}
 

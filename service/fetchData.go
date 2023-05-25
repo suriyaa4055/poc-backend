@@ -1,7 +1,7 @@
 package service
 
 import (
-	data "testBench/dataLayer"
+	data "testBench/datalayer"
 	"testBench/initializers"
 	"testBench/models"
 
