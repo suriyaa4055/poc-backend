@@ -13,7 +13,7 @@ import (
 
 type BenchService interface {
 	FetchAllHeadUnits() []models.TestBenchTable
-	FetchGenData(gen string) ([]models.GenDetails, error)
+	FetchGenData(gen string) ([]models.Details, error)
 	FetchInfoByVin(w http.ResponseWriter, r *http.Request)
 	FetchInfoByGenVer(w http.ResponseWriter, r *http.Request)
 }
@@ -34,11 +34,11 @@ func (d FetchData) FetchAllHeadUnits() []models.TestBenchTable {
 }
 
 // Fetch all the vin and other details of a particular HU Generation
-func (d FetchData) FetchGenData(gen string) ([]models.GenDetails, error) {
+func (d FetchData) FetchGenData(gen string) ([]models.Details, error) {
 
 	serviceObj := GetData()
 
-	return serviceObj.GenDataFromDB(gen)
+	return serviceObj.DataFromDB(gen)
 
 }
 

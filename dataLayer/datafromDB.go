@@ -8,7 +8,7 @@ import (
 
 type DataLayer interface {
 	HeadUnitsFromDB() []models.TestBenchTable
-	GenDataFromDB(gen string) ([]models.GenDetails, error)
+	DataFromDB(gen string) ([]models.Details, error)
 }
 
 type Data struct {
@@ -26,13 +26,13 @@ func (d Data) HeadUnitsFromDB() []models.TestBenchTable {
 	//json.NewEncoder(w).Encode(lists)
 }
 
-func (d Data) GenDataFromDB(gen string) ([]models.GenDetails, error) {
+func (d Data) DataFromDB(gen string) ([]models.Details, error) {
 
-	var tb []models.GenDetails
+	var tb []models.Details
 	result := initializers.DB.Where("hu_gen = ?", gen).Find(&tb)
 	if result.Error != nil {
 		//http.Error(w, result.Error.Error(), http.StatusInternalServerError)
-		return []models.GenDetails{}, result.Error
+		return []models.Details{}, result.Error
 	}
 
 	return tb, nil

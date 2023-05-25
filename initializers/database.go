@@ -13,7 +13,7 @@ var DB *gorm.DB
 func ConnectToDB() *gorm.DB {
 	var err error
 	// DB_URL := "host=host.docker.internal user=root password=root dbname=assignment1 port=5432 sslmode=disable"
-	DB_URL := "host=localhost user=postgres password=Suriyaa dbname=testBench port=5432 sslmode=disable"
+	DB_URL := "host=localhost user=root password=root dbname=testBench port=5432 sslmode=disable"
 	// DB_URL := "host=172.17.0.2 user=root password=root dbname=assignment1 port=5432 sslmode=disable"
 
 	// host.docker.internal
