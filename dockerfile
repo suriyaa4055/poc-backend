@@ -1,3 +1,4 @@
+# To build image
 FROM golang:1.20.1-alpine3.17 AS build-stage
 WORKDIR /app
 COPY go.mod go.sum ./
