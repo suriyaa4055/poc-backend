@@ -30,7 +30,7 @@ jobs:
     - name: Build and push docker image
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
-        image: suriyaajs/poc-app
+        image: suriyaajs/demo-poc
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
