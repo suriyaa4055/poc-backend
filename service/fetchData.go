@@ -38,7 +38,7 @@ func (d FetchData) FetchGenData(gen string) ([]models.Details, error) {
 
 	serviceObj := GetData()
 
-	return serviceObj.DataFromDB(gen)
+	return serviceObj.GenDataFromDB(gen)
 
 }
 
