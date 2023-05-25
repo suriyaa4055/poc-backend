@@ -1,9 +1,9 @@
-package handlers
+package controllers
 
 import (
-	"fmt"
 	"testBench/initializers"
 	"testBench/models"
+	s "testBench/service"
 
 	"encoding/json"
 	"net/http"
@@ -18,20 +18,22 @@ type BenchInterface interface {
 type Database struct {
 }
 
+func GetService() s.BenchService {
+	rout := s.FetchData{}
+	return rout
+}
+
 func (d Database) FetchInfo(w http.ResponseWriter, r *http.Request) {
 
-	var lists []models.TestBenchTable
-	if result := initializers.DB.Find(&lists); result.Error != nil {
-		fmt.Println(result.Error)
-	}
+	lists := GetService().FetchAllHeadUnits()
 
 	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	// json.NewEncoder(w).Encode("Created")
 	w.Header().Set("content-Type", "application/json")
-
 	json.NewEncoder(w).Encode(lists)
+
 }
+
 func (d Database) FetchInfoByGen(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
@@ -45,6 +47,7 @@ func (d Database) FetchInfoByGen(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
 		return
 	}
+
 	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(tb)
