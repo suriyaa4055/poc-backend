@@ -38,13 +38,11 @@ func (d Database) FetchInfoByGen(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
 	gen := (vars["HuGen"])
-	// if !err {
-	// 	http.Error(w, err.Error(), http.StatusBadRequest)
-	// 	return
-	// }
-	var tb []models.Details
-	if result := initializers.DB.Where("hu_gen = ?", gen).Find(&tb); result.Error != nil {
-		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
+
+	tb, err := GetService().FetchGenData(gen)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+
 		return
 	}
 
