@@ -26,15 +26,15 @@ func (d Data) HeadUnitsFromDB() []models.TestBenchTable {
 	//json.NewEncoder(w).Encode(lists)
 }
 
-func (d Data) GenDataFromDB(gen string) ([]models.Details, error) {
+//Get all the details of particular headunit except services availale
+unc (d Data) GenDataFromDB(gen string) ([]models.Details, error) {
 
 	var tb []models.Details
-	result := initializers.DB.Where("hu_gen = ?", gen).Find(&tb)
+	result := initializers.D.Where("hu_gen = ?", gen).Find(&tb)
 	if result.Error != nil {
-		//http.Error(w, result.Error.Error(), http.StatusInternalServerError)
-		return []models.Details{}, result.Error
-	}
+		
+		eturn []models.Details{}, result.Error
+}
 
 	return tb, nil
-	//json.NewEncoder(w).Encode(lists)
 }
