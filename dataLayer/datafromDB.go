@@ -8,6 +8,7 @@ import (
 
 type DataLayer interface {
 	HeadUnitsFromDB() []models.TestBenchTable
+
 	GenDataFromDB(gen string) ([]models.Details, error)
 }
 
