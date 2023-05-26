@@ -73,7 +73,7 @@ func (d Database) FetchInfoByGenVer(w http.ResponseWriter, r *http.Request) {
 	// if !err {
 	// 	http.Error(w, err.Error(), http.StatusBadRequest)
 	// 	return
-	// }
+	// error}
 	var tb []models.TestBenchTable
 	if result := initializers.DB.Where("hu_gen = ? AND hu_version = ?", gen, ver).Find(&tb); result.Error != nil {
 		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
